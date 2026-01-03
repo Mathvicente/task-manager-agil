@@ -1,7 +1,7 @@
-from src.task_service import *
+import src.task_service as service
 
 def test_criar_tarefa_com_prioridade():
-    tarefa = criar_tarefa("Estudar", "Revisar matéria", prioridade="Alta")
+    tarefa = service.criar_tarefa("Estudar", "Revisar matéria", prioridade="Alta")
     assert tarefa["prioridade"] == "Alta"
 
 def test_listar_tarefas():
