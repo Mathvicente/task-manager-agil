@@ -1,4 +1,4 @@
-import src.task_service as service
+from task_service import *
 
 def setup_function():
     service.tasks.clear()
