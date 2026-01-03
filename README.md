@@ -12,3 +12,5 @@ Essa mudança impactou:
 - A documentação UML (docs)
 
 A funcionalidade foi implementada de forma incremental, seguindo o conceito de mudança de escopo comum em projetos ágeis.
+
+“Pipeline configurado com GitHub Actions”
