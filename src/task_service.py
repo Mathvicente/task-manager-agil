@@ -1,36 +1,33 @@
 tasks = []
-counter = 1
+_next_id = 1
+
+def reset_tasks():
+    global tasks, _next_id
+    tasks = []
+    _next_id = 1
 
 def criar_tarefa(titulo, descricao, prioridade="Média"):
-    global counter
+    global _next_id
     tarefa = {
-        "id": counter,
+        "id": _next_id,
         "titulo": titulo,
         "descricao": descricao,
-        "status": "To Do",
+        "status": "Pendente",
         "prioridade": prioridade
     }
     tasks.append(tarefa)
-    counter += 1
+    _next_id += 1
     return tarefa
 
 def listar_tarefas():
     return tasks
 
-def atualizar_tarefa(id, titulo=None, descricao=None, status=None, prioridade=None):
+def atualizar_tarefa(id, prioridade=None, status=None):
     for tarefa in tasks:
         if tarefa["id"] == id:
-            if titulo:
-                tarefa["titulo"] = titulo
-            if descricao:
-                tarefa["descricao"] = descricao
-            if status:
-                tarefa["status"] = status
             if prioridade:
                 tarefa["prioridade"] = prioridade
+            if status:
+                tarefa["status"] = status
             return tarefa
     return None
-
-def remover_tarefa(id):
-    global tasks
-    tasks = [t for t in tasks if t["id"] != id]
